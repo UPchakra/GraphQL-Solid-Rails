@@ -64,7 +64,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: %r{spec/graphql/blog_api_graphql}
+  config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: %r{spec/graphql/blog_post_api_graphql}
 
   config.include ApiRspecUtils
   config.include GraphqlHelpers
