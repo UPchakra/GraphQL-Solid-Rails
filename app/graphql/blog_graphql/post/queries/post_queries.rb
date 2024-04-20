@@ -3,14 +3,21 @@
 module Post
   module Queries
     module PostQueries
+      include BaseCommon::Defaults
 
-      def self.included(base)
-        base.field :posts, [Post::Types::PostType], null: true, description: "Get all posts"
-        base.field :post, Post::Types::PostType, null: true, description: "Get a single post" do
-          argument :id, GraphQL::Types::ID, required: true # Fix here
-
+      def self.included(child_class)
+        declare_cacheable_field(child_class, :posts, [Post::Types::PostType], null: false)
+        declare_cacheable_field(child_class, :post, Post::Types::PostType, null: false) do
+          argument :id, GraphQL::Types::ID, required: true
         end
       end
+      # def self.included(base)
+      #   base.field :posts, [Post::Types::PostType], null: true, description: "Get all posts"
+      #   base.field :post, Post::Types::PostType, null: true, description: "Get a single post" do
+      #     argument :id, GraphQL::Types::ID, required: true 
+
+      #   end
+      # end
 
       def posts
         BlogPost.all

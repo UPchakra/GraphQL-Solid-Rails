@@ -46,7 +46,14 @@ gem "bootsnap", require: false
 
 # graphql related
 gem 'graphql'
+
 gem "graphiql-rails"
+
+# GraphQL Caching
+gem 'graphql-fragment_cache'
+
+gem "solid_cache"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

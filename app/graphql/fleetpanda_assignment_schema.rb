@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class FleetpandaAssignmentSchema < GraphQL::Schema
+  use GraphQL::FragmentCache
+  
   mutation(BaseCommon::Types::MutationType)
   query(BaseCommon::Types::QueryType)
 
