@@ -11,13 +11,6 @@ module Post
           argument :id, GraphQL::Types::ID, required: true
         end
       end
-      # def self.included(base)
-      #   base.field :posts, [Post::Types::PostType], null: true, description: "Get all posts"
-      #   base.field :post, Post::Types::PostType, null: true, description: "Get a single post" do
-      #     argument :id, GraphQL::Types::ID, required: true 
-
-      #   end
-      # end
 
       def posts
         BlogPost.all
